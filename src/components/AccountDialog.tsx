@@ -2,11 +2,15 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { AcceptedReports } from "./Charts/AcceptedReports";
+import { RejectedReports } from "./Charts/RejectedReports";
+import { ReportsActivity } from "./Charts/ReportsActivity";
+import { WalletBalance } from "./WalletBalance";
+import { TeamMembers } from "./TeamMembers";
 
 export function AccountDialog() {
   return (
@@ -21,29 +25,16 @@ export function AccountDialog() {
           <p className="sidebar-item-title">Cove Account Info</p>
         </Button>
       </DialogTrigger>
-      <DialogContent className="">
+      <DialogContent className="sm:max-w-3xl z-[999]">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Cove Account Info</DialogTitle>
-          <DialogDescription>
-            Check your Cove account information here.
-          </DialogDescription>
+          <DialogTitle className="text-2xl">Your Cove Account Info</DialogTitle>
         </DialogHeader>
-        <div className="grid grid-cols-3 gap-4 p-4 border w-full">
-          <div className="border rounded-sm p-4">
-            <h1>Accepted Reports</h1>
-          </div>
-          <div className="border rounded-sm p-4">
-            <h1>Rejected Reports</h1>
-          </div>
-          <div className="border rounded-sm p-4">
-            <h1>Wallet Balance</h1>
-          </div>
-          <div className="border rounded-sm p-4">
-            <h1>Reports Activity</h1>
-          </div>
-          <div className="border rounded-sm p-4">
-            <h1>Team members (3)</h1>
-          </div>
+        <div className="grid grid-cols-3 gap-4 w-full">
+          <AcceptedReports />
+          <RejectedReports />
+          <WalletBalance />
+          <ReportsActivity className="col-span-2" />
+          <TeamMembers />
         </div>
       </DialogContent>
     </Dialog>

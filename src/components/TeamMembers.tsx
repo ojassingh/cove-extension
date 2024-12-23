@@ -1,4 +1,3 @@
-import { report } from "process";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
@@ -44,7 +43,7 @@ export function TeamMembers() {
               <tbody>
                 {memberData.map(({ id, name, email, bitmoji, reports }) => {
                   return (
-                    <tr id={id}>
+                    <tr key={id} id={id}>
                       <td className="flex items-center gap-2">
                         <img
                           src={bitmoji}

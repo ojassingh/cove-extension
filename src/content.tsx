@@ -4,6 +4,21 @@ import "./index.css";
 import { AccountDialog } from "./components/AccountDialog";
 import { ScreeningTab } from "./components/ScreeningTab";
 import { ScreenAction } from "./components/ScreenButton";
+import LoginForm from "./components/LoginForm";
+import { useAtomValue, useSetAtom } from "jotai";
+import { isAuthenticatedAtom } from "./context";
+
+const ProtectedComponent: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const isAuthenticated = useAtomValue(isAuthenticatedAtom);
+
+  if (!isAuthenticated) {
+    return <LoginForm />;
+  }
+
+  return <>{children}</>;
+};
 
 // Sidebar menu logic
 const sidebar_menu = document.querySelector(".sidebar-body");
@@ -15,7 +30,9 @@ if (sidebar_menu) {
   const cove_account_info_root = createRoot(cove_account_info);
   cove_account_info_root.render(
     <React.StrictMode>
-      <AccountDialog />
+      <ProtectedComponent>
+        <AccountDialog />
+      </ProtectedComponent>
     </React.StrictMode>
   );
 }
@@ -61,7 +78,9 @@ const checkForElement = setInterval(() => {
 
       screeningTabRoot.render(
         <React.StrictMode>
-          <ScreeningTab leadData={leadData} />
+          <ProtectedComponent>
+            <ScreeningTab leadData={leadData} />
+          </ProtectedComponent>
         </React.StrictMode>
       );
     }
@@ -85,10 +104,14 @@ const checkForModal = setInterval(() => {
           actionButtonsContainer.lastElementChild
         );
 
-        createRoot(screenButtonContainer).render(<ScreenAction />);
-        // clearInterval(checkForModal);
-        // commenting this to keep it endless
+        createRoot(screenButtonContainer).render(
+          <ProtectedComponent>
+            <ScreenAction />
+          </ProtectedComponent>
+        );
       }
     }
   }
 }, 100);
+
+// Auth logic

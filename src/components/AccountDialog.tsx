@@ -3,13 +3,10 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 export function AccountDialog() {
   return (
@@ -24,37 +21,30 @@ export function AccountDialog() {
           <p className="sidebar-item-title">Cove Account Info</p>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]"
-        style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-        }}
-      >
+      <DialogContent className="">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle className="text-2xl">Cove Account Info</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Check your Cove account information here.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
+        <div className="grid grid-cols-3 gap-4 p-4 border w-full">
+          <div className="border rounded-sm p-4">
+            <h1>Accepted Reports</h1>
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
+          <div className="border rounded-sm p-4">
+            <h1>Rejected Reports</h1>
+          </div>
+          <div className="border rounded-sm p-4">
+            <h1>Wallet Balance</h1>
+          </div>
+          <div className="border rounded-sm p-4">
+            <h1>Reports Activity</h1>
+          </div>
+          <div className="border rounded-sm p-4">
+            <h1>Team members (3)</h1>
           </div>
         </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

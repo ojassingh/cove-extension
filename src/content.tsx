@@ -8,6 +8,8 @@ import LoginForm from "./components/LoginForm";
 import { useAtomValue, useSetAtom } from "jotai";
 import { isAuthenticatedAtom } from "./context";
 
+// Auth logic to show the form when not authenticated
+
 const ProtectedComponent: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {

@@ -33,7 +33,7 @@ function ScreeningContent({ leadData }: { leadData?: any }) {
     <div className="space-y-6">
       <div className="border-b pb-4">
         <h2 className="text-2xl font-semibold text-gray-800">
-          Screening Information for {leadData.name}
+          Screening Information {leadData.name}
         </h2>
       </div>
 

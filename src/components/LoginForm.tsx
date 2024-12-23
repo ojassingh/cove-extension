@@ -57,14 +57,14 @@ const LoginForm: React.FC = () => {
         <Button type="submit">Login</Button>
       </form>
 
-      <Button className="mt-4" variant="link">
-        <a href="https://cove-stage.vercel.app/signup">
+      {/* <Button className="mt-4" variant="link">
+        <a href="https://cove-stage.vercel.app/signup" style={{color: "black"}}>
           Dont have an account?{" "}
           <span className="underline">
             Sign Up! <ArrowUpRight className="inline-flex" />
           </span>
         </a>
-      </Button>
+      </Button> */}
     </div>
   );
 };

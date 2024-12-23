@@ -37,14 +37,6 @@ export function ScreenAction() {
               ) as HTMLInputElement
             )?.value || "";
 
-          console.log("Sending screening request:", {
-            propertyId,
-            firstName,
-            lastName,
-            email,
-            phone,
-          });
-
           // Would've used this logic however I get an invalid token message
 
           const url =
@@ -72,16 +64,17 @@ export function ScreenAction() {
             propertyId: "6737c1c0af160f7ae2b45f54",
           };
 
-          try {
-            const response = await axios.post(url, requestBody, {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-            });
-            console.log("Screening request successful:", response.data);
-          } catch (error) {
-            console.error("Failed to send screening request:", error);
+          if (firstName && lastName && email && phone) {
+            try {
+              const response = await axios.post(url, requestBody, {
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${token}`,
+                },
+              });
+            } catch (error) {
+              console.error("Failed to send screening request:", error);
+            }
           }
         } catch (error) {
           console.error("Failed to send screening request:", error);
@@ -89,6 +82,7 @@ export function ScreenAction() {
       }
     };
     saveButton?.addEventListener("click", handleSave);
+
     return () => {
       saveButton?.removeEventListener("click", handleSave);
     };

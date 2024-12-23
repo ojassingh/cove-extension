@@ -3,8 +3,9 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { AccountDialog } from "./components/AccountDialog";
 import { ScreeningTab } from "./components/ScreeningTab";
-import { ScreenAction } from "./components/ScreenAction";
+import { ScreenAction } from "./components/ScreenButton";
 
+// Sidebar menu logic
 const sidebar_menu = document.querySelector(".sidebar-body");
 
 if (sidebar_menu) {
@@ -18,6 +19,8 @@ if (sidebar_menu) {
     </React.StrictMode>
   );
 }
+
+// Screening tab logic in Lead Mangament (/#leadHub)
 
 const checkForElement = setInterval(() => {
   const notes_tab = document.getElementById("lead-hub-details-top-bar");
@@ -65,6 +68,7 @@ const checkForElement = setInterval(() => {
   }
 }, 100);
 
+// Screening button logic when New Lead button is clicked
 
 const checkForModal = setInterval(() => {
   const lead_modal = document.querySelector(".moveInModal");
@@ -83,6 +87,7 @@ const checkForModal = setInterval(() => {
 
         createRoot(screenButtonContainer).render(<ScreenAction />);
         // clearInterval(checkForModal);
+        // commenting this to keep it endless
       }
     }
   }

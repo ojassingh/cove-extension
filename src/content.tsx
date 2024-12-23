@@ -114,4 +114,3 @@ const checkForModal = setInterval(() => {
   }
 }, 100);
 
-// Auth logic

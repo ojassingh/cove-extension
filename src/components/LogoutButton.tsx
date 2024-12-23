@@ -10,12 +10,11 @@ export function LogoutButton() {
   }
 
   return (
-    <div>
+    <div className="mr-4">
       {isAuthenticated && (
         <Button
-          onClick={() => {
-            handleClick;
-          }}
+        className=""
+          onClick={handleClick}
         >
           Logout
         </Button>

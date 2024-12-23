@@ -11,6 +11,7 @@ import { RejectedReports } from "./Charts/RejectedReports";
 import { ReportsActivity } from "./Charts/ReportsActivity";
 import { WalletBalance } from "./WalletBalance";
 import { TeamMembers } from "./TeamMembers";
+import { LogoutButton } from "./LogoutButton";
 
 export function AccountDialog() {
   return (
@@ -26,8 +27,10 @@ export function AccountDialog() {
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-3xl z-[999]">
-        <DialogHeader>
-          <DialogTitle className="text-2xl">Your Cove Account Info</DialogTitle>
+        <DialogHeader className="">
+          <DialogTitle className=" flex justify-between items-center">
+            <p className="text-2xl font-bold">Your Cove Account Info</p> <LogoutButton />
+          </DialogTitle>
         </DialogHeader>
         <div className="grid grid-cols-3 gap-4 w-full">
           <AcceptedReports />

@@ -12,6 +12,7 @@ import { ReportsActivity } from "./Charts/ReportsActivity";
 import { WalletBalance } from "./WalletBalance";
 import { TeamMembers } from "./TeamMembers";
 import { LogoutButton } from "./LogoutButton";
+import { ArrowUpRight } from "lucide-react";
 
 export function AccountDialog() {
   return (
@@ -23,13 +24,20 @@ export function AccountDialog() {
             className=""
             style={{ height: "30px", width: "30px" }}
           />
-          <p className="sidebar-item-title">Cove Account Info</p>
+          <p className="sidebar-item-title">Cove Account Info </p>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-3xl z-[999]">
+      <DialogContent className="sm:max-w-3xl  z-[999]">
         <DialogHeader className="">
           <DialogTitle className=" flex justify-between items-center">
-            <p className="text-2xl font-bold">Your Cove Account Info</p> <LogoutButton />
+            <a
+              target="_blank"
+              href="https://cove-stage.vercel.app"
+              className="text-2xl font-bold text-black"
+            >
+              Your Cove Account Info <ArrowUpRight className="inline-flex" />
+            </a>{" "}
+            <LogoutButton />
           </DialogTitle>
         </DialogHeader>
         <div className="grid grid-cols-3 gap-4 w-full">

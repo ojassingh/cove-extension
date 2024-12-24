@@ -23,7 +23,7 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-40 right-10 bg-white p-10 rounded-lg shadow-lg border text-black">
+    <div className="fixed top-20 right-10 bg-white px-10 py-4 rounded-lg shadow-lg border text-black">
       <div className="flex items-center gap-2">
         <img
           src="https://i.ibb.co/cJmgcYD/cove-logo-removebg-preview.png"
@@ -32,6 +32,9 @@ const LoginForm: React.FC = () => {
         />
         <h2 className="font-medium text-black">Login to Cove</h2>
       </div>
+      <h3 className="!text-black text-sm mt-1 !important">
+        It's time to scale your leasing operations
+      </h3>
 
       <form
         onSubmit={handleSubmit}
@@ -42,7 +45,7 @@ const LoginForm: React.FC = () => {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="bg-white text-black border-gray-300 focus:ring focus:ring-blue-500"
+          className="bg-white text-black border-gray-300"
           required
         />
         <Input
@@ -50,21 +53,21 @@ const LoginForm: React.FC = () => {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="bg-white text-black border-gray-300 focus:ring focus:ring-blue-500"
+          className="bg-white text-black border-gray-300"
           required
         />
-        {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="!text-red-500">{error}</p>}
         <Button type="submit">Login</Button>
       </form>
 
-      {/* <Button className="mt-4" variant="link">
-        <a href="https://cove-stage.vercel.app/signup" style={{color: "black"}}>
-          Dont have an account?{" "}
-          <span className="underline">
-            Sign Up! <ArrowUpRight className="inline-flex" />
-          </span>
+      <Button className="mt-4" variant="link">
+        <a href="https://cove-stage.vercel.app/signup">
+          <h3 className="text-foreground">
+            Dont have an account? Sign Up!{" "}
+            <ArrowUpRight className="inline-flex" />
+          </h3>
         </a>
-      </Button> */}
+      </Button>
     </div>
   );
 };

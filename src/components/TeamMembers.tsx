@@ -30,9 +30,9 @@ export function TeamMembers() {
     <Card className="">
       <CardHeader>
         <CardTitle>Team Members (3)</CardTitle>
-        <CardContent className="px-0 grid place-content-center">
-          <Button className="">Add Member</Button>
-          <div>
+        <CardContent className="px-0 grid place-content-center gap-2 mt-1">
+          <Button className="mt-1">Add Member</Button>
+          <div className="mt-1">
             <table className="table-auto">
               <thead>
                 <tr>
@@ -40,10 +40,10 @@ export function TeamMembers() {
                   <th>Reports</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="mt-1">
                 {memberData.map(({ id, name, email, bitmoji, reports }) => {
                   return (
-                    <tr key={id} id={id}>
+                    <tr key={id} id={id} className="">
                       <td className="flex items-center gap-2">
                         <img
                           src={bitmoji}
@@ -51,11 +51,11 @@ export function TeamMembers() {
                           className=""
                         ></img>
                         <div>
-                          <p className="text-sm">{name}</p>
+                          <p className="text-xs font-medium">{name}</p>
                           <p className="text-xs">{email}</p>
                         </div>
                       </td>
-                      <td className="text-sm">{reports}</td>
+                      <td className="text-sm text-center">{reports}</td>
                     </tr>
                   );
                 })}

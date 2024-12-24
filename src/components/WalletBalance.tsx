@@ -11,15 +11,15 @@ import {
 export function WalletBalance() {
   return (
     <Card className="">
-      <CardHeader>
+      <CardHeader className="">
         <CardTitle>Wallet Balance</CardTitle>
         <CardDescription>
           Showing total visitors for the last 6 months
         </CardDescription>
-        <CardContent className="grid gap-2">
+        <CardContent className="grid place-content-center gap-2 w-full px-0">
           <h1 className="text-center text-2xl font-bold">$6.93</h1>
           <p className="text-xs text-center">Available credit for reports</p>
-          <Button variant="default" className="w-full">
+          <Button variant="default" className="">
             Refill Wallet
           </Button>
         </CardContent>

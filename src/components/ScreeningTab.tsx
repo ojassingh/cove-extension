@@ -30,14 +30,15 @@ export function ScreeningTab({ leadData }: { leadData?: any }) {
 
 function ScreeningContent({ leadData }: { leadData?: any }) {
   return (
-    <div className="space-y-6">
-      <div className="border-b pb-4">
-        <h2 className="text-2xl font-semibold text-gray-800">
-          Screening Information {leadData.name}
+    <div className="p-4">
+      <div className="p-4">
+        <h2 className="text-2xl font-semibold text-gray-800 ml-4">
+          Screening Information{" "}
+          {`for ${leadData.name} with email ${leadData.email}`}
         </h2>
       </div>
 
-      <div>
+      <div className="shadow-lg rounded-lg p-4">
         <img
           style={{ width: "1000px" }}
           className=""

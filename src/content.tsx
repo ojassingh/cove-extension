@@ -39,7 +39,34 @@ if (sidebar_menu) {
   );
 }
 
-// Screening tab logic in Lead Mangament (/#leadHub)
+// Below lies the screening tab logic in Lead Mangament (/#leadHub)
+
+let leadData = {
+  name: "",
+  email: "",
+};
+
+const checkForRows = setInterval(() => {
+  const rows = document.querySelectorAll("tr.leadRow");
+  rows.forEach((row) => {
+    if (!row.hasAttribute("data-listener")) {
+      row.addEventListener("click", () => {
+        const nameDiv = row.querySelector(".nameDetails");
+        const name = nameDiv?.textContent?.trim() || "";
+        const emailLink = row.querySelector(
+          'td:nth-child(3) a[href^="mailto:"]'
+        );
+        const email = emailLink?.textContent?.trim() || "";
+
+        leadData = {
+          name,
+          email,
+        };
+      });
+      row.setAttribute("data-listener", "true");
+    }
+  });
+}, 100);
 
 const checkForElement = setInterval(() => {
   const notes_tab = document.getElementById("lead-hub-details-top-bar");
@@ -54,30 +81,6 @@ const checkForElement = setInterval(() => {
         "lead-hub-details-top-bar-item-2 screening-tab";
       tabs[1].after(screeningTabContainer);
       const screeningTabRoot = createRoot(screeningTabContainer);
-
-      const leadData = {
-        applicantFirstName: (
-          document.querySelector(
-            'input[ng-model="$ctrl.customer.firstName"]'
-          ) as HTMLInputElement
-        )?.value,
-        applicantLastName: (
-          document.querySelector(
-            'input[ng-model="$ctrl.customer.lastName"]'
-          ) as HTMLInputElement
-        )?.value,
-        applicantEmail: (
-          document.querySelector(
-            'input[ng-model="$ctrl.customer.email"]'
-          ) as HTMLInputElement
-        )?.value,
-        applicantPhone: (
-          document.querySelector(
-            'input[ng-model="$ctrl.customer.phone"]'
-          ) as HTMLInputElement
-        )?.value,
-      };
-
       screeningTabRoot.render(
         <React.StrictMode>
           <ProtectedComponent>
@@ -115,4 +118,3 @@ const checkForModal = setInterval(() => {
     }
   }
 }, 100);
-

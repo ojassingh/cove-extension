@@ -56,13 +56,13 @@ const LoginForm: React.FC = () => {
           className="bg-white text-black border-gray-300"
           required
         />
-        {error && <p className="!text-red-500">{error}</p>}
+        {error && <h3 className="!text-red-500">{error}</h3>}
         <Button type="submit">Login</Button>
       </form>
 
       <Button className="mt-4" variant="link">
         <a href="https://cove-stage.vercel.app/signup">
-          <h3 className="text-foreground">
+          <h3 className="text-black">
             Dont have an account? Sign Up!{" "}
             <ArrowUpRight className="inline-flex" />
           </h3>
